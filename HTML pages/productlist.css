@@ -1,0 +1,128 @@
+.tablink {
+    background-color: #555;
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 50%;
+  }
+  .card {
+    
+      width: 25%;
+    }
+  .left{
+      float:left;  
+     
+      width:25%; 
+      height:180px; 
+  }
+  .right{
+  float:right; 
+   
+  width:25%; 
+  height:180px;
+  }
+  .tablink:hover {
+    background-color: #777;
+  }
+  
+  /* Style the tab content */
+  .tabcontent {
+    color: white;
+    display: none;
+    padding: 50px;
+    text-align: center;
+  }
+  
+  .header {
+      overflow: hidden;
+      background-color: #4682b4;
+      padding: 20px 10px;
+    }
+    
+    .header h2 {
+      color: black;
+      text-align: center;
+      padding: 6px;
+      text-decoration: none; 
+      line-height: 25px;
+      border-radius: 4px;
+    }
+    .responsive {
+      width: 100%;
+      height: auto;
+    }
+  
+    * {
+      box-sizing: border-box;
+    }
+    
+    input[type=text], select, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      resize: vertical;
+    }
+    .captch {
+      width: 60%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      resize: vertical;
+    }
+    
+    label {
+      padding: 12px 12px 12px 0;
+      display: inline-block;
+    }
+    
+    input[type=submit] {
+     
+      color: white;
+      padding: 12px 25px;
+      padding-left: 1cm;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      float: Left;
+    }
+    
+    input[type=submit]{
+      background-color: #008CBA;
+      width: auto;
+    }
+    
+    .container {
+      border-radius: 5px;
+      background-color: #f2f2f2;
+     
+      margin: auto;
+    width: 50%;
+    padding: 10px;
+    }
+    
+    
+    
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    .row1:after {
+      content: "";
+      display: table;
+      clear: both;
+      
+    }
+    span.psw {
+      float: right;
+      padding-top: 16px;
+    }
+    
+    
+    

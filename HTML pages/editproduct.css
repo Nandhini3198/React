@@ -1,0 +1,90 @@
+/* form { 
+    border: 3px solid #f1f1f1; 
+} 
+/*assign full width inputs*/ 
+  
+
+.header {
+  overflow: hidden;
+  background-color: #4682b4;
+  padding: 20px 10px;
+}
+
+.header h2 {
+  color: black;
+  text-align: center;
+  padding: 6px;
+  text-decoration: none; 
+  line-height: 25px;
+  border-radius: 4px;
+}
+.responsive {
+  width: 100%;
+  height: auto;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+ 
+  color: white;
+  padding: 12px 25px;
+  padding-left: 1cm;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: Left;
+}
+
+input[type=submit]{
+  background-color: #008CBA;
+  width: auto;
+}
+.con{
+  text-align:center;
+}
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+ margin-top: 1mm;
+ display: inline-block; 
+width: 37%;
+height: 10%;
+padding: 10px;
+}
+
+
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.row1:after {
+  content: "";
+  display: table;
+  clear: both;
+  
+}
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+

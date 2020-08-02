@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="productlist.css" />
+  <style>
+    .responsive {
+      width: 50%;
+      height: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="header">
+
+    <h2><img src="logo.png" width="50" height="50" />The Full Cart</h2>
+
+  </div>
+  <br>
+
+  <div style="position: relative;" class="tab">
+    <button class="tablink" type="button" style="background-color: steelblue;">Dashboard</button>
+    <button class="tablink" type="button" style="background-color: steelblue;">List</button>
+
+  </div>
+  <div class="row" style="width: 6cm;">
+    <label>Search</label>
+    <br>
+    <input class="captch">
+    <input style="margin-right: 16px" type="submit" value="Search">
+  </div>
+  <div style="position: relative;">
+  <input style="position: absolute;
+  right: 60px;
+  top: 2px;" type="submit" value="Add Product"/>
+  </div>
+  <div class="row" style="width: 6cm;">
+    <label>Sort by</label>
+    <select name="cars" id="cars">
+      <option value="saab">Electronics</option>
+      <option value="mercedes">Assecesories</option>
+
+    </select>
+  </div>
+  <div style="margin-top: 5mm;">
+    <div >
+     
+      <div class="card" >
+        <img src="prod1.jpg" style="width:100%">
+        
+        <div>
+          <h4><b>Daniel Willington</b></h4>
+          <p>Watch cost 15,000</p>
+          <input style="margin-right: 16px" type="submit" value="Edit">
+          <input style="margin-right: 16px" type="submit" value="Delete">
+        </div>
+      
+      </div>
+     
+    </div>
+    
+      <div class="card">
+        <img src="prod2.jpg" style="width:100%">
+        <div>
+          <h4><b>JBL headphones</b></h4>
+          <p>cost 5000</p>
+          <input style="margin-right: 16px" type="submit" value="Edit">
+          <input style="margin-right: 16px" type="submit" value="Delete">
+        </div>
+      </div>
+    
+    </div>
+    
+</div>
+
+</body>
+
+</html>
