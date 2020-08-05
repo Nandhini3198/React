@@ -1,47 +1,13 @@
-.tablink {
-  background-color: #555;
-  color: white;
-  float: left;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  font-size: 17px;
-  width: 50%;
-}
-.card {
+/* form { 
+    border: 3px solid #f1f1f1; 
+} 
+/*assign full width inputs*/ 
   
-    width: 40%;
-  }
-.left{
-    float:left;  
-   
-    width:50%; 
-    height:280px; 
-}
-.right{
-float:right; 
- 
-width:50%; 
-height:280px;
-margin-top:1cm;
-}
-.tablink:hover {
-  background-color: #777;
-}
-
-/* Style the tab content */
-.tabcontent {
-  color: white;
-  display: none;
-  padding: 50px;
-  text-align: center;
-}
 
 .header {
     overflow: hidden;
     background-color: #4682b4;
-    padding: 20px 10px;
+   
   }
   
   .header h2 {
@@ -61,6 +27,7 @@ margin-top:1cm;
     box-sizing: border-box;
   }
   
+ 
   input[type=text], select, textarea {
     width: 100%;
     padding: 12px;
@@ -68,13 +35,7 @@ margin-top:1cm;
     border-radius: 4px;
     resize: vertical;
   }
-  .captch {
-    width: 60%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: vertical;
-  }
+  
   
   label {
     padding: 12px 12px 12px 0;
@@ -90,10 +51,11 @@ margin-top:1cm;
     border-radius: 4px;
     cursor: pointer;
     float: Left;
+    background-color:#000000;
   }
   
   input[type=submit]{
-    background-color: #008CBA;
+ 
     width: auto;
   }
   
@@ -124,9 +86,6 @@ margin-top:1cm;
     float: right;
     padding-top: 16px;
   }
-  .responsive {
-    width: 50%;
-    height: auto;
-  }
+  
   
   
