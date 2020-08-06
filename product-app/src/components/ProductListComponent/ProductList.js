@@ -5,8 +5,6 @@ class ProductList extends Component {
     render() {
         return (
             <div>
-               
-<br></br>
 
 <div class="topnav" style={{position: "relative"}} >
       <Link to="/Dash">Dashboard</Link>
@@ -20,9 +18,9 @@ class ProductList extends Component {
 </div>
 <br></br>
 <div style={{position:"relative"}} >
-<input style={{position: "absolute"},
+<Link to="/addProduct"><button style={{position: "absolute"},
 {right: 60},
-{top: 2}} type="submit" value="Add Product"/>
+{top: 2}} type="submit" value="Add Product"></button></Link>
 </div>
 <div class="row"style={{width:150}}>
 <label>Sort by</label>

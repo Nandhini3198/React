@@ -30,6 +30,7 @@ function App() {
 <Route path="/rest" exact component={Emp}/>
 <Route path="/Dash" exact component={Dashboard}/>
 <Route path="/Das" exact component={ProductList}/>
+<Route path="/addProduct" exact component={AddProduct}/>
 </Switch>
     </div>
     </Router>

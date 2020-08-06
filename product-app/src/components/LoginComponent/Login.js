@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Login.css';
+import {Link} from 'react-router-dom';
 
 class Login extends Component {
     render() {
@@ -23,9 +24,10 @@ class Login extends Component {
     
         
         <div class="row"  >
-         <input  type="submit" style={{marginLeft:5},{marginTop :16},{margin:5}} value="Login"></input>
-     
-         <input  type="submit"  style={{marginLeft:5},{marginTop :16},{margin:5}} value="Sign Up"></input>
+        <button type="submit" style={{marginLeft:5},{marginTop :16},{margin:5}} >Login</button>
+        
+         <button type="submit"  style={{marginLeft:5},{marginTop :16},{margin:5}}> SignUp
+         </button>
          <span class="psw">Forgot <a href="#">Password?</a></span> 
              
         </div> 

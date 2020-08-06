@@ -1,0 +1,36 @@
+{
+  "allfriends": [
+    {
+      "name": "OBBQ",
+      "since": "11",
+      "id": 1
+    },
+    {
+      "name": "OWIOH",
+      "since": 13,
+      "id": 3
+    },
+    {
+      "name": "Adi",
+      "since": "8",
+      "id": 4
+    }
+  ],
+  "allfriendsdetails": [
+    {
+      "id": 1,
+      "relatedTo_id": 1,
+      "location": "Ahmedabad"
+    },
+    {
+      "id": 2,
+      "relatedTo_id": 2,
+      "location": "Chennai"
+    },
+    {
+      "relatedTo_id": 3,
+      "location": "Tokyo",
+      "id": 3
+    }
+  ]
+}

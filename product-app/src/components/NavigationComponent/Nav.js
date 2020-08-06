@@ -9,7 +9,6 @@ class Nav extends Component {
                 <div class="topnav" style={{textAlign:"center"}}>
   <Link to="/Login">Login</Link>
   <Link to="/SignUp">Sign Up</Link>
-  <Link to="/rest">Employee</Link>
   <h3 style={{color:"white"},{alignSelf:"left"}}>The Full CarT</h3>
  
   
