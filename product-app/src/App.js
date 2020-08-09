@@ -10,11 +10,16 @@ import Dashboard from './components/DashboardComponent/Dashboard';
 import Nav from './components/NavigationComponent/Nav'
 import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
 import ProductList from './components/ProductListComponent/ProductList';
-import Emp from './components/EmployeeComponent/Employee'
+import Emp from './components/EmployeeComponent/Employee';
+import { useHistory } from "react-router-dom";
+import Employee from './components/EmployeeComponent/Employee';
+import Home from './components/HomeComponent/Home'
+
 
 function App() {
+  const history = useHistory();
   return (
-    <Router>
+    <Router history={history}>
     <div className="App">
      
     {/* <LoginComponent></LoginComponent>
@@ -22,16 +27,18 @@ function App() {
     {/* <AddProduct></AddProduct> */}
     {/* <EditProduct></EditProduct>
       <Dashboard></Dashboard> */}
-<Nav></Nav>
 
-<Switch>
+
+
+<Route path="/" component={Home}/>
 <Route path="/Login" exact component={LoginComponent}/>
 <Route path="/SignUp" exact component={SignUpComponent}/>
-<Route path="/rest" exact component={Emp}/>
+
 <Route path="/Dash" exact component={Dashboard}/>
-<Route path="/Das" exact component={ProductList}/>
+<Route path="/List" exact component={ProductList}/>
 <Route path="/addProduct" exact component={AddProduct}/>
-</Switch>
+<Route path="/editProduct" exact component={EditProduct}/>
+
     </div>
     </Router>
   );

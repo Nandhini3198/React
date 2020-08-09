@@ -1,32 +1,36 @@
-import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
+import React from 'react';
+import Graph from '../GraphComponent/graph';
+import {withRouter} from 'react-router-dom'
 
-class Dashboard extends Component {
+class Dashboard extends React.Component {
+    constructor(props)
+    {
+super(props);
+this.state={
+//reload:this.props.location.state.reload,
+//reloadvalue:true
+}
+//this.reload=this.reload.bind(this)
+    }
+
+    // reload()
+    // {
+    // if(this.state.reload)
+    // // {window.location.reload(false)}
+    // {
+    //     this.state.reload()
+    // }
+    // this.setState({reloadvalue:false})
+    
+    // }
+    
     render() {
         return (
- <div> 
+            <div className="container">
+                <div className="graph" style={{width:"50rem"},{height:"50rem"}}><Graph></Graph></div>
 
-<div class="topnav" style={{position: "relative"}} >
-      <Link to="/Dash">Dashboard</Link>
-       <Link to="/Das">ProductList</Link>
- </div>
-<div class="left">
-<img src="chart.jpg"  class="responsive" style={{width:60},{height:20}}></img>
-</div>
-
-<div class="right">
-  <div class="card">
-      <img src="prod1.jpg" alt="Avatar" style={{width:100}}></img>
-      <div >
-        <h4><b>Daniel Willinton</b></h4> 
-        <p>Rs 15,000</p> 
-      </div>
-    </div>
-</div>
-            
-</div>         
-        );
+            </div>
+        )
     }
 }
-
-export default Dashboard;
+export default withRouter(Dashboard);

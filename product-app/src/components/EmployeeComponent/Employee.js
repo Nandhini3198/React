@@ -12,10 +12,10 @@ class Employee extends Component {
 
     componentWillMount = () => {
 
-        axios.get("http://dummy.restapiexample.com/api/v1/employees")
+        axios.get("http://localhost:3000/allProducts")
           .then((response) => {
               console.log(response)
-             this.setState({ Employees: response.data.data});
+             this.setState({ Employees: response.data});
           })
           .catch(function (error) {
             console.log(error);
@@ -26,7 +26,7 @@ class Employee extends Component {
         {return<tbody key={index}>
             <tr>
                 <td>{emp.id}</td>
-                <td>{emp.employee_name}</td>
+                <td>{emp.type}</td>
                 
             </tr>
         </tbody>})
