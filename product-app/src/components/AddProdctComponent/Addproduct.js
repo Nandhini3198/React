@@ -34,7 +34,7 @@ class Addproduct extends Component {
     let discriptionError = "";
     let imageError = "";
 
-    if (!this.state.name) {
+    if (!this.state.pname) {
       nameError = "Product name is required"
     }
     if (!this.state.type) {
@@ -49,12 +49,10 @@ class Addproduct extends Component {
     if (!this.state.discription) {
       discriptionError = "Discription  is required"
     }
-    if (!this.state.imageError) {
-      priceError = "Image is required"
-    }
+    
 
 
-    if (nameError || typeError || availabilityError || priceError || discriptionError || imageError) {
+    if (nameError || typeError || availabilityError || priceError || discriptionError ) {
       this.setState({ nameError, typeError, availabilityError, priceError, discriptionError, imageError })
       return false;
     }
