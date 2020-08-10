@@ -104,7 +104,7 @@ class Login extends Component {
                            </div>
                            <div class="form-group">
                               <label>Password</label>
-                              <input type="text" name="password" onChange={this.handleChange} name="password" class="form-control" placeholder="Password"></input>
+                              <input type="password" name="password" onChange={this.handleChange} name="password" class="form-control" placeholder="Password"></input>
                               <p style={{ fontSize: "12", color: 'red' }}>{this.state.passwordError}</p>
                            </div>
                            <br />

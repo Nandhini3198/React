@@ -29,8 +29,7 @@ function App() {
       <Dashboard></Dashboard> */}
 
 
-
-<Route path="/" component={Home}/>
+<Route path="/"  component={Home}/>
 <Route path="/Login" exact component={LoginComponent}/>
 <Route path="/SignUp" exact component={SignUpComponent}/>
 

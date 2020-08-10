@@ -19,6 +19,7 @@ class EditProductComponent extends Component {
     }
     this.handleEdit = this.handleEdit.bind(this)
     this.handleChange = this.handleChange.bind(this)
+    this.back=this.back.bind(this)
   }
   handleChange(e) {
     //e.preventDefault()
@@ -26,6 +27,10 @@ class EditProductComponent extends Component {
       [e.target.name]: e.target.value
     })
 
+  }
+  back()
+  {
+    this.props.history.push('/List')
   }
   handleEdit(event) {
     event.preventDefault();
@@ -90,8 +95,8 @@ class EditProductComponent extends Component {
               <div class="row" style={{ paddingTop: 1 }} >
                 <button style={{ marginRight: 16 }, { marginTop: 16 }} type="submit" onClick={this.handleEdit} value="">Edit Product</button>
 
-                <button style={{ marginRight: 16 }, { marginTop: 16 }} type="submit" value=""> Back</button>
-                <button style={{ marginRight: 16 }, { marginTop: 16 }} type="submit" value="">Reset  </button>
+                <button style={{ marginRight: 16 }, { marginTop: 16 }} onClick={this.back} type="submit" value=""> Back</button>
+                {/* <button style={{ marginRight: 16 }, { marginTop: 16 }} type="submit" value="">Reset  </button> */}
               </div>
             </form>
 

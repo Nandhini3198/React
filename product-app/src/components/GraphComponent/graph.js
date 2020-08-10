@@ -5,7 +5,7 @@ import axios from 'axios'
 class graph extends Component {
 
     componentWillMount() {
-        var a=0,b=0,c=0,d=0;
+        var a=0,b=0,c=0,d=0,e=0;
         // axios.all([axios.get("http://localhost:3000/allProducts?type=Inventory"),
         // axios.get("http://localhost:3000/allProducts?type=Inventory"),
         // axios.get("http://localhost:3000/allProducts?type=Automobile")]).
@@ -37,14 +37,19 @@ class graph extends Component {
                       a=a+1;
                       console.log("a"+a)
                   }
-                  if(datavalue[i].type==='Grooming')
+                  if(datavalue[i].type==='Automobile')
                   {
                       b++;
                       console.log(b)
                   }
-                  if(datavalue[i].type==='Health')
+                  if(datavalue[i].type==='Grooming')
                   {
                       c++;
+                      console.log(b)
+                  }
+                  if(datavalue[i].type==='Health')
+                  {
+                      d++;
                       console.log("c"+c)
                   }
                   if(datavalue[i].type==='health')
@@ -52,11 +57,16 @@ class graph extends Component {
                       d++;
                       console.log("c"+c)
                   }
+                  if(datavalue[i].type==='health')
+                  {
+                      e++;
+                      console.log("c"+c)
+                  }
               }
               //console.log(a)
               this.setState({
                             chartData: {
-                                labels: ['Electronics', 'Inventory ', 'Automobile', 'Spare Parts', 'Grooming ', 'HealthCare'],
+                                labels: ['Electronics' ,'Automobile',  'Grooming ', 'HealthCare'],
                                 datasets: [{
                                     label: 'Products availability',
                                     data: [

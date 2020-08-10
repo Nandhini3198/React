@@ -25,6 +25,11 @@ class Addproduct extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleImage = this.handleImage.bind(this);
     this.validateInput = this.validateInput.bind(this);
+    this.back=this.back.bind(this)
+  }
+  back()
+  {
+    this.props.history.push('/List')
   }
   validateInput() {
     let nameError = "";
@@ -162,8 +167,8 @@ render() {
             <div class="row" style={{ paddingTop: 1 }} >
               <button style={{ marginRight: 16 }, { marginTop: 16 }} onClick={this.handleSubmit} type="submit" value="">Add Product</button>
 
-              <button style={{ marginRight: 16 }, { marginTop: 16 }} type="submit" value=""> Back</button>
-              <button style={{ marginRight: 16 }, { marginTop: 16 }} type="submit" value="">Reset  </button>
+              <button style={{ marginRight: 16 }, { marginTop: 16 }} onClick={this.back} type="submit" value=""> Back</button>
+              {/* <button style={{ marginRight: 16 }, { marginTop: 16 }} type="submit" value="">Reset  </button> */}
             </div>
           </form>
 
