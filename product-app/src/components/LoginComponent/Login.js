@@ -68,7 +68,7 @@ class Login extends Component {
          if (data.data[0].password == this.state.password) {
             console.log("true")
            localStorage.setItem('user', data.data[0].first_name)
-            this.props.history.push('/Dash')
+            this.props.history.push('/List')
          }
          else {
             window.alert("Check your user name and password")

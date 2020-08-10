@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Signup.css';
-import axios from 'axios'
+import axios from 'axios';import {withRouter} from "react-router-dom"
 
 class Signup extends Component {
     constructor() {
@@ -22,24 +22,24 @@ class Signup extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.validateInput=this.validateInput.bind(this);
-        this.checkNewUser=this.checkNewUser.bind(this);
+       // this.checkNewUser=this.checkNewUser.bind(this);
        // this.confirmPassword=this.confirmPassword.bind(this)
     }
     
     
-    async checkNewUser()
-    {
-        let emailError="";
-        const data = await axios.get("http://localhost:3000/users?email=" + this.state.email)
-        if(data.data[0])
-        {   
-            console.log(data.data[0])
-            emailError="user Id already exist"
-            this.setState({ emailError })
-            return false;  
-        }
+    // async checkNewUser()
+    // {
+    //     let emailError="";
+    //     const data = await axios.get("http://localhost:3000/users?email=" + this.state.email)
+    //     if(data.data[0])
+    //     {   
+    //         console.log(data.data[0])
+    //         emailError="user Id already exist"
+    //         this.setState({ emailError })
+    //         return false;  
+    //     }
 
-    }
+    
     validateInput()
     {
         let emailError = "";
@@ -92,7 +92,7 @@ class Signup extends Component {
 
         event.preventDefault();
         if (this.validateInput()) {
-            if(this.checkNewUser()){
+            //if(this.checkNewUser()){
             console.log("data")
             const user = {
                 email: this.state.email,
@@ -100,14 +100,13 @@ class Signup extends Component {
                 lastname: this.state.lastname,
                 contact: this.state.contact,
                 password: this.state.password
-            }
+            } 
             axios.post("http://localhost:3000/users", user).then((data) => {
                 console.log(data)
-
-            })}
-            else{
-
-            }
+                localStorage.setItem('user',data.data.firstname)
+                this.props.history.push('/List');
+            })
+        
         }
     }
     render() {
@@ -171,4 +170,4 @@ class Signup extends Component {
     }
 }
 
-export default Signup;
+export default withRouter(Signup);
