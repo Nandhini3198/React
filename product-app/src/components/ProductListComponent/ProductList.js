@@ -19,30 +19,43 @@ class ProductList extends Component {
     this.handleDelete = this.handleDelete.bind(this)
     this.getAllProducts = this.getAllProducts.bind(this)
     this.handleChange = this.handleChange.bind(this)
+    this.getSearchedProducts=this.getSearchedProducts.bind(this)
   }
 
   handleChange(event) {
-   
+   if(event.target.value==="")
+   {
     this.setState({
-      search: event.target.value
+      products:this.state.products1
     })
-    this.getSearchedProducts(event)
+   }
+  else{
+    this.setState({
+      search:event.target.value
+    })
+    this.getSearchedProducts()
   }
-  getSearchedProducts(event) {
+}
     
-    if (this.state.search.length!==0) {
-      axios.get("http://localhost:3000/allProducts?q=" + this.state.search)
-        .then((response) => {
-          console.log("search" + JSON.stringify(response.data))
-          this.setState({ products: response.data,products1:response.data });
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-    }
-    else {
-      this.setState({ products:this.state.products1 });
-    }
+  getSearchedProducts(event) {
+  
+         let filterarr=this.state.products1  
+        filterarr=  filterarr.filter((product)=> {
+            if(product.pname.toLowerCase().includes((this.state.search).toLowerCase()))
+            {
+            return product
+            }
+            console.log(filterarr)
+            this.setState({
+              products:this.filterarr
+            })
+            
+})
+        
+          //console.log("search" + JSON.stringify(response.data))
+          this.setState({ products:filterarr  });
+      
+    
   }
   componentWillMount = () => {
     console.log("will mount")

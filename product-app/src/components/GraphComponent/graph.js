@@ -4,74 +4,28 @@ import axios from 'axios'
 
 class graph extends Component {
 
-    componentWillMount() {
-        var a=0,b=0,c=0,d=0,e=0;
-        // axios.all([axios.get("http://localhost:3000/allProducts?type=Inventory"),
-        // axios.get("http://localhost:3000/allProducts?type=Inventory"),
-        // axios.get("http://localhost:3000/allProducts?type=Automobile")]).
-        //     then(axios.spread((res1, res2, res3)=> {
-        //         this.setState({
-        //             chartData: {
-        //                 labels: ['Electronics', 'Automobile ', 'Inventory', 'Spare Parts', 'Grooming ', 'HealthCare'],
-        //                 datasets: [{
-        //                     label: 'Products availability',
-        //                     data: [
-        //                         res1.data.length, res2.data.length, res3.data.length
-        //                     ],
-        //                     backgroundColor: ['steelblue', '#000A0', '#2B60DE', 'steelblue', '#000A0', '#2B60DE']
-        //                 }
-        //                 ]
-        //             }
-        //         })
-        //         console.log(res1,res2,res3)
-        //     }))
-        axios.get("http://localhost:3000/allProducts").then(
+    
+
+    componentDidUpdate() {
+        axios.get("http://localhost:3000/allProducts?type="+this.props.category).then(
             (data)=>
             {
-              const datavalue=data.data;
-             console.log(datavalue[0]) 
-              for(var i=0;i<datavalue.length;i++)
+                console.log(data.data)
+              let arr=[];
+              let arr1=[];
+
+              for(const data1 of data.data)
               {
-                  if(datavalue[i].type==='Electronics')
-                  {
-                      a=a+1;
-                      console.log("a"+a)
-                  }
-                  if(datavalue[i].type==='Automobile')
-                  {
-                      b++;
-                      console.log(b)
-                  }
-                  if(datavalue[i].type==='Grooming')
-                  {
-                      c++;
-                      console.log(b)
-                  }
-                  if(datavalue[i].type==='Health')
-                  {
-                      d++;
-                      console.log("c"+c)
-                  }
-                  if(datavalue[i].type==='health')
-                  {
-                      d++;
-                      console.log("c"+c)
-                  }
-                  if(datavalue[i].type==='health')
-                  {
-                      e++;
-                      console.log("c"+c)
-                  }
+                 arr.push(data1.pname)
+                 arr1.push(data1.availability)
               }
-              //console.log(a)
+              //console.log(arr1)
               this.setState({
                             chartData: {
-                                labels: ['Electronics' ,'Automobile',  'Grooming ', 'HealthCare'],
+                                labels:arr,
                                 datasets: [{
                                     label: 'Products availability',
-                                    data: [
-                                        a,b,c,d
-                                    ],
+                                    data: arr1,
                                     backgroundColor: ['steelblue', '#000A0', '#2B60DE', 'steelblue', '#000A0', '#2B60DE']
                                 }
                                 ]
@@ -94,22 +48,26 @@ class graph extends Component {
 
 
 
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             chartData: {
 
-            }
+            },
+            category:this.props.category
+            
+           
 
         }
 
-
+        //this.getGraph()
 
 
     }
     render() {
         return (
             <div className="chart">
+                {this.props.category}
                 <Bar
                     data={this.state.chartData}
                     width={100}

@@ -20,6 +20,7 @@ class EditProductComponent extends Component {
     this.handleEdit = this.handleEdit.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.back=this.back.bind(this)
+    this.validateInput=this.validateInput.bind(this)
   }
   handleChange(e) {
     //e.preventDefault()
@@ -32,16 +33,52 @@ class EditProductComponent extends Component {
   {
     this.props.history.push('/List')
   }
+  validateInput() {
+    let nameError = "";
+    let typeError = "";
+    let availabilityError = "";
+    let priceError = "";
+    let discriptionError = "";
+    let imageError = "";
+    var pattern = new RegExp(/^[0-9\b]+$/);
+
+    if (!this.state.pname) {
+      nameError = "Product name is required"
+    }
+    if (!this.state.type) {
+      typeError = "Product type is required"
+    }
+    if (!pattern.test(this.state.availability)) {
+      availabilityError = "Enter numerical value for availability"
+    }
+    if (!pattern.test(this.state.price)) {
+      priceError = "Enter numerical value"
+    }
+    if (!this.state.discription) {
+      discriptionError = "Discription  is required"
+    }
+    
+
+
+    if (nameError || typeError || availabilityError || priceError || discriptionError ) {
+      this.setState({ nameError, typeError, availabilityError, priceError, discriptionError, imageError })
+      return false;
+    }
+
+    return true;
+  }
   handleEdit(event) {
     event.preventDefault();
-
+if(this.validateInput()){
     const prod = {
       pname: this.state.pname,
       type: this.state.type,
       availability: this.state.availability,
       price: this.state.price,
       image:this.state.image,
-      discription: this.state.discription
+      discription: this.state.discription,
+      availabilityError:"",
+      priceError:""
     }
     console.log("prod" + prod)
     axios.put(`http://localhost:3000/allProducts/${this.state.id}`, prod).then((data) => {
@@ -49,6 +86,7 @@ class EditProductComponent extends Component {
       this.props.history.push('/List')
 
     })
+  }
   }
   render() {
     return (
@@ -77,11 +115,13 @@ class EditProductComponent extends Component {
               <div class="row">
                 <label >Availability</label>
                 <input type="text" onChange={this.handleChange} name="availability" defaultValue={this.state.availability}></input>
+                <p style={{ fontSize: "12", color: 'red' }}>{this.state.availabilityError}</p>
               </div>
 
               <div class="row">
                 <label >Price</label>
                 <input type="text" onChange={this.handleChange} name="price" defaultValue={this.state.price}></input>
+                <p style={{ fontSize: "12", color: 'red' }}>{this.state.priceError}</p>
               </div>
 
               <div class="row">
