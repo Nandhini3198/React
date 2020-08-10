@@ -38,6 +38,7 @@ class Addproduct extends Component {
     let priceError = "";
     let discriptionError = "";
     let imageError = "";
+    var pattern = new RegExp(/^[0-9\b]+$/);
 
     if (!this.state.pname) {
       nameError = "Product name is required"
@@ -45,11 +46,11 @@ class Addproduct extends Component {
     if (!this.state.type) {
       typeError = "Product type is required"
     }
-    if (!this.state.availability) {
-      availabilityError = "Enter products availability"
+    if (!pattern.test(this.state.availability)) {
+      availabilityError = "Enter numerical value for availability"
     }
-    if (!this.state.price) {
-      priceError = "Price is required"
+    if (!pattern.test(this.state.price)) {
+      priceError = "Enter numerical value"
     }
     if (!this.state.discription) {
       discriptionError = "Discription  is required"
