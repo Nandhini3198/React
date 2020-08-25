@@ -5,12 +5,36 @@ import axios from 'axios'
 class graph extends Component {
 
     
-
+    getCategories()
+    {
+        axios.get("http://localhost:3000/Categories").then(data=>
+        {
+            //console.log("getting Categories")
+            let arr=[]
+            for(const data1 of data.data)
+            {
+                arr.push(data1.cname)
+            }
+            this.setState({
+                Categories:arr
+            })
+           // console.log("arr"+arr)
+           // console.log("cate"+this.state.Categories)
+        })
+    }
+    
+    handleCategory(event)
+    {
+      this.setState({
+         [event.target.name]:event.target.value
+      })
+     
+    }
     componentDidUpdate() {
-        axios.get("http://localhost:3000/allProducts?type="+this.props.category).then(
+        axios.get("http://localhost:3000/allProducts?type="+this.state.category).then(
             (data)=>
             {
-                console.log(data.data)
+                //console.log(data.data)
               let arr=[];
               let arr1=[];
 
@@ -35,18 +59,10 @@ class graph extends Component {
         )
         }
    
-
-
-
-
-
-
-
-
-
-
-
-
+componentWillMount()
+{
+    this.getCategories()
+}
 
     constructor(props) {
         super(props)
@@ -54,20 +70,34 @@ class graph extends Component {
             chartData: {
 
             },
-            category:this.props.category
+            Categories:[],
+            category:""
+           
             
            
 
         }
 
         //this.getGraph()
-
+        this.getCategories=this.getCategories.bind(this)
+        this.handleCategory=this.handleCategory.bind(this)
 
     }
     render() {
-        return (
+        const category=this.state.Categories.map((category)=>
+        {return <option value={category} >{category}</option>})
+        return (<div>
+              <div class="row">
+                    
+                    <label >Select Category</label>
+                    
+                    <select style={{width:"20rem"}} name="category" onChange={this.handleCategory} >
+                      <option value="Default" >Choose a category</option>
+                     {category}
+                  </select>
+                    </div>
             <div className="chart">
-                {this.props.category}
+                
                 <Bar
                     data={this.state.chartData}
                     width={100}
@@ -75,6 +105,7 @@ class graph extends Component {
 
                 />
 
+            </div>
             </div>
         );
     }

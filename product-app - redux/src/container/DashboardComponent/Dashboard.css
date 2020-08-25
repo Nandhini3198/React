@@ -1,0 +1,12 @@
+.container{
+  text-align: center
+}
+.graph{
+  display:inline-block;
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: 2cm;
+}

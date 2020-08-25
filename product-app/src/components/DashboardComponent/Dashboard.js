@@ -11,40 +11,36 @@ this.state={
     add:false,
     category:"",
     Categories:[],
-    products:""
+    products:"",
+    new:""
 
 }
-//this.handleCtegories=this.handleCategories.bind(this)
+//this.getCategories()
+//this.getCategories=this.getCategories.bind(this)
+this.newCategory=this.newCategory.bind(this)
 this.handleClick=this.handleClick.bind(this)
-this.handleCategory=this.handleCategory.bind(this)
+//this.handleCategory=this.handleCategory.bind(this)
 this.handlesubmit=this.handlesubmit.bind(this)
+    }
+    newCategory(event)
+    {
+        this.setState({
+            newCategory:event.target.value
+        })
+        //event.target.value=""
     }
     componentWillMount()
     {
-        axios.get("http://localhost:3000/Categories").then(data=>
-        {
-            console.log("getting Categories")
-            let arr=[]
-            for(const data1 of data.data)
-            {
-                arr.push(data1.cname)
-            }
-            this.setState({
-                Categories:arr
-            })
-            console.log("arr"+arr)
-            console.log("cate"+this.state.Categories)
-        })
-        //console.log("cate"+this.state.Categories)
+        //this.getCategories()
     }
-
-    handleCategory(event)
+    componentWillUpdate()
     {
-      this.setState({
-          category:event.target.value
-      })
-     
+      //this.getCategories()
+        //console.log("cate"+this.state.Categories)
+        //this.props.history.push('/Dash')
     }
+    
+
     handleClick()
     {
         this.setState({
@@ -54,38 +50,34 @@ this.handlesubmit=this.handlesubmit.bind(this)
     handlesubmit()
     {
         const cat={
-            cname:this.state.category,
+            cname:this.state.newCategory,
             availability:0
         }
-        console.log("cat"+cat.category)
+        
+        //console.log("cat"+cat.category)
         const data=axios.post("http://localhost:3000/Categories",cat).then(data=>
         {
             console.log("new"+data)
+            //this.props.history.push('/Dash')
+            this.setState({
+                add:false
+            })
         })
     }
     
     
     render() {
-        console.log(this.state.Categories)
-         const category=this.state.Categories.map((category)=>
-        {return <option value={category} >{category}</option>})
+        //console.log(this.state.Categories)
+        
         return (
             <div style={{width:"50rem"}}className="container">
                 <button type="submit" onClick={this.handleClick} name="category" >Add Category</button>
-                {this.state.add?<div><input type="text" onChange={this.handleCategory} name="category" style={{width:"13rem",float:"left"}} ></input>
+                {this.state.add?<div><input type="text" onChange={this.newCategory} name="category" style={{width:"13rem",float:"left"}} ></input>
                 <button type="submit" onClick={this.handlesubmit}>Add</button></div>:"" }
               
-                <div class="row">
-                    
-              <label >Select Category</label>
               
-              <select style={{width:"20rem"}} name="type" onChange={this.handleCategory} >
-                <option value="Default" >Choose a category</option>
-               {category}
-            </select>
-              </div>
     
-                <div ><Graph style={{width:"20rem"}} category={this.state.category}></Graph></div>
+                <div ><Graph style={{width:"20rem"}}></Graph></div>
 
             </div>
         )
